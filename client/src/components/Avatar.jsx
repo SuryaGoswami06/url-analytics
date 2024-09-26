@@ -1,12 +1,12 @@
-import React, { useEffect, useMemo, useState ,useRef} from 'react'
+import React, { useEffect, useMemo, useState ,useRef, memo} from 'react'
 import { FaRegUser } from "react-icons/fa";
 import { MdOutlinePayment } from "react-icons/md";
 import { MdOutlineSettings } from "react-icons/md";
 import { CiLogin } from "react-icons/ci";
 import CustomLink from './CustomLink';
 
-function Avatar({name,accountType}) {
-    const [isOpen,setIsOpen] = useState(true)
+const Avatar=memo(({name,accountType})=> {
+    const [isOpen,setIsOpen] = useState(false)
     const navProfileContainerRef = useRef(null)
 
     const profileDropDownItems = [
@@ -18,7 +18,7 @@ function Avatar({name,accountType}) {
         {
             name:'billing & plan',
             icon:MdOutlinePayment,
-            link:'billing-and-plan'
+            link:'billings-and-plans'
         },
         {
             name:'settings',
@@ -84,8 +84,8 @@ function Avatar({name,accountType}) {
                     </div>
                     <div>
                         {
-                            profileDropDownItems?.map((item)=>{
-                                return <CustomLink link={item.link} Icon={item.icon} name={item.name} />
+                            profileDropDownItems?.map((item,index)=>{
+                                return <CustomLink key={index} link={item.link} Icon={item.icon} name={item.name} />
                             })
                         }
                     </div>
@@ -95,6 +95,6 @@ function Avatar({name,accountType}) {
         }
     </div>
   )
-}
+})
 
 export default Avatar

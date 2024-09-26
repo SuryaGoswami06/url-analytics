@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 
 const variantStyle={
     primary:'bg-primary flex justify-center items-center mx-1 h-9 px-4 text-white rounded-lg capitalize hover:bg-[#2E5BEB]',
@@ -8,14 +8,14 @@ const variantStyle={
 // primary -> primary
 // ghost & classname -> classname
 
-function Button({
+const Button=memo(({
     label,
     type='button',
     Icon,
     variant='primary',
     onClick,
     disabled=false
-}){
+})=>{
     return(
         <button
         type={type}
@@ -29,6 +29,6 @@ function Button({
         <span>{label}</span>
         </button>
     )
-}
+})
 
 export default Button

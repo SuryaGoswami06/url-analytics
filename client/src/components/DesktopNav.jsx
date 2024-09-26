@@ -1,11 +1,10 @@
 import React from 'react'
 import GreetNTime from './GreetNTime'
 import {useSelector} from 'react-redux'
-import { IoMdAdd } from "react-icons/io";
 import Button from './Button';
 import Avatar from './Avatar';
 
-function DesktopNav() {
+const DesktopNav=()=> {
   const isLoggedIn = useSelector(state=>state.user.isLoggedIn)
   console.log(isLoggedIn);
   return (

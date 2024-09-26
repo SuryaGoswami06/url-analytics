@@ -1,6 +1,6 @@
 import React,{useState,useEffect} from 'react'
 
-function GreetNTime() {
+const GreetNTime = ()=> {
     const [currentPartOfTheDay,setCurrentPartOfTheDay] = useState('')
     const [currentDate,setCurrentDate]= useState('')
     const [currentTime,setCurrentTime]=useState('')
